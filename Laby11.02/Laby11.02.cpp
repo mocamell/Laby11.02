@@ -188,7 +188,104 @@ for (int i = 0;i < r;i++) {
 }
 */
 //Zad7
+/*
+int r;
+int w;
+cout << "Podaj rozmiar macierzy kwadratowej ";
+cin >> r;
+int** A = new int* [r];
+int** B = new int* [r];
+int** C = new int* [r];
+for (int i = 0;i < r;i++) {
+	A[i] = new int[r];
+	B[i] = new int[r];
+	C[i] = new int[r];
+}
+cout << "Wprowadz elementy pierwszej macierzy: " << endl;
+for (int i = 0;i < r;i++) {
+	for (int j = 0;j < r;j++) {
 
+		cin >> w;
+		A[i][j] = w;
+	}
+}
+
+cout << "Wprowadz elementy drugiej macierzy: " << endl;
+for (int i = 0;i < r;i++) {
+	for (int j = 0;j < r;j++) {
+
+		cin >> w;
+		B[i][j] = w;
+	}
+
+}
+cout << "Pierwsza macierz: " << endl;
+for (int i = 0;i < r;i++) {
+	for (int j = 0;j < r;j++) {
+		cout << A[i][j] << "\t";
+	}
+	cout << endl;
+}
+cout << "Druga macierz: " << endl;
+for (int i = 0;i < r;i++) {
+	for (int j = 0;j < r;j++) {
+		cout << B[i][j] << "\t";
+	}
+	cout << endl;
+}
+
+for (int i = 0;i < r;i++) {
+	for (int j = 0;j < r;j++) {
+		C[i][j] = 0;
+		for (int k = 0;k < r;k++) {
+			
+			C[i][j] += A[i][k] * B[k][j];
+			
+		}
+	}
+}
+cout << "Macierz wynikowa: " << endl;
+for (int i = 0;i < r;i++) {
+	for (int j = 0;j < r;j++) {
+		cout << C[i][j] << "\t";
+	}
+	cout << endl;
+}
+*/
+//Zad8
+/*
+int r;
+int w;
+int suma = 0;
+cout << "Podaj rozmiar macierzy kwadratowej ";
+cin >> r;
+int** tab = new int* [r];
+for (int i = 0;i < r;i++) {
+	tab[i] = new int[r];
+}
+cout << "Wprowadz elementy  macierzy: " << endl;
+for (int i = 0;i < r;i++) {
+	for (int j = 0;j < r;j++) {
+		cin >> w;
+		tab[i][j] = w;
+	}
+}
+cout << "Macierz: " << endl;
+for (int i = 0;i < r;i++) {
+	for (int j = 0;j < r;j++) {
+		cout << tab[i][j] << "\t";
+	}
+	cout << endl;
+}
+for (int i = 0;i < r;i++) {
+	for (int j = 0;j < r;j++) {
+		if (i == j) {
+			suma += tab[i][j];
+		}
+	}
+}
+cout << "Suma glownej przekatnej wynosi " << suma << endl;
+*/
 //Zad9
 /*
 int liczba;
@@ -287,6 +384,26 @@ cout << "Najwieksza wartosc w macierzy to " << wieksz << ", na pozycji " << c <<
 cout << "Najmniejsza wartosc w macierzy to " << mniejsz << ", na pozycji " << a <<" " << b << endl;
 */
 //Zad12
+/*
+int suma = 0;
+srand(time(NULL));
+int n = 6;
+int** tab = new int*[n];
+for (int i = 0;i < n;i++) {
+	tab[i] = new int[n];
+}
+for (int i = 0;i < n;i++) {
+	for (int j = 0;j < n;j++) {
+		tab[i][j] = rand() % 101 + 0;
+		cout << tab[i][j] << "\t";
+	}
+	cout << endl;
+}
+for (int i = 0;i < n;i++) {
+	suma += tab[i][n - i - 1];
+}
+cout << "Suma drugiej przekatnej wynosi: " << suma << endl;
+*/
 //Zad13
 /*
 srand(time(NULL));
@@ -400,5 +517,52 @@ else {
 }
 */
 //Zad17
-
+/*
+int tab[8][6];
+int e;
+int a; 
+int b;
+int sumaw[8] = { 0 };
+int sumak[6] = { 0 };
+int najww = 0;
+int najwk = 0;
+cout << "Podaj elementy macierzy:";
+for (int i = 0;i < 8;i++) {
+	for (int j = 0;j < 6;j++) {
+		cin >> e;
+		tab[i][j] = e;
+	}
+}
+cout << "Macierz: " << endl;
+for (int i = 0;i <8 ;i++) {
+	for (int j = 0;j < 6;j++) {
+		cout << tab[i][j] << "\t";
+	}
+	cout << endl;
+}
+for (int i = 0;i < 8;i++) {
+	for (int j = 0;j < 6;j++) {
+		sumaw[i] += tab[i][j];
+		sumak[j] += tab[i][j];
+		sumaw[0] = najww;
+		sumak[0] = najwk;
+		if (sumaw[i] > najww) {
+			najww = sumaw[i];
+			a = i + 1;
+		}
+		if (sumak[j] > najwk) {
+			najwk = sumak[j];
+			b = j + 1;
+		}
+	}
+}
+for (int i = 0;i < 8;i++) {
+	cout << "Suma wiersza numer " << i + 1 << " wynosi: " << sumaw[i] << endl;
+}
+for (int j = 0;j < 6;j++) {
+	cout << "Suma kolumny numer " << j + 1 << " wynosi: " << sumak[j] << endl;
+}
+cout << "Wiersz o najwiekszej sumie to: " << a << endl;
+cout << "Kolumna o najwiekszej sumie to: " << b << endl;
+*/
 }
